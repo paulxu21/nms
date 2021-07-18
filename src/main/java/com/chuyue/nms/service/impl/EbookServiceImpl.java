@@ -1,5 +1,6 @@
 package com.chuyue.nms.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.chuyue.nms.entity.Ebook;
 import com.chuyue.nms.mapper.EbookMapper;
@@ -14,8 +15,11 @@ public class EbookServiceImpl extends ServiceImpl<EbookMapper, Ebook> implements
     @Autowired
     private EbookMapper ebookMapper;
     @Override
-    public List<Ebook> listAll() {
-
-        return ebookMapper.selectList(null);
+    public List<Ebook> listAll(String name) {
+        QueryWrapper<Ebook> wrapper = new QueryWrapper<>();
+        if(name != null) {
+            wrapper.like("name", name);
+        }
+        return ebookMapper.selectList(wrapper);
     }
 }

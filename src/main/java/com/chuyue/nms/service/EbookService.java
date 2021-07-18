@@ -8,5 +8,5 @@ import java.util.List;
 
 
 public interface EbookService extends IService<Ebook> {
-    List<Ebook> listAll();
+    List<Ebook> listAll(String name);
 }

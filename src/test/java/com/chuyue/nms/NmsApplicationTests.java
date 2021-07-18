@@ -23,9 +23,4 @@ class NmsApplicationTests {
     void testListEbook() {
         ebookMapper.selectList(null).forEach(System.out::println);
     }
-
-    @Test
-    void testListEbookService() {
-        ebookServiceImpl.listAll().forEach(System.out::println);
-    }
 }

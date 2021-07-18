@@ -18,9 +18,9 @@ public class EbookController {
     private EbookServiceImpl ebookService;
 
     @GetMapping("/list")
-    public CommonResponse list() {
+    public CommonResponse list(String name) {
         CommonResponse<List<Ebook>> response = new CommonResponse<>();
-        List<Ebook> list = ebookService.list();
+        List<Ebook> list = ebookService.listAll(name);
         response.setSuccess(true);
         response.setMessage("返回eBooks");
         response.setContent(list);
